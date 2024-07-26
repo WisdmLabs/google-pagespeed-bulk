@@ -184,6 +184,7 @@ const getSpeedData = async (testNum = 1) => {
             speedIndex,
             TBT,
             labMaxFID,
+            fieldINP,
             pageSize,
             date,
           };
