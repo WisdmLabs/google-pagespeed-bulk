@@ -92,6 +92,8 @@ const getSpeedData = async (testNum = 1) => {
               const fieldCLS =
                 fieldMetrics?.CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile ??
                 'no data';
+              const fieldINP =
+                fieldMetrics?.INTERACTION_TO_NEXT_PAINT?.percentile ?? 'no data';
 
               // Construct FieldResult object
               const fieldResObj = {
@@ -100,6 +102,7 @@ const getSpeedData = async (testNum = 1) => {
                 fid: fieldFID,
                 lcp: fieldLCP,
                 cls: fieldCLS / 100,
+                inp: fieldINP,
                 date: moment().format('YYYY-MM-DD'),
               };
               // Push to fieldRes array
@@ -118,6 +121,8 @@ const getSpeedData = async (testNum = 1) => {
                   fieldMetrics.LARGEST_CONTENTFUL_PAINT_MS ? fieldMetrics.LARGEST_CONTENTFUL_PAINT_MS.percentile : 'no data';
                 const fieldCLS =
                   fieldMetrics.CUMULATIVE_LAYOUT_SHIFT_SCORE ? fieldMetrics.CUMULATIVE_LAYOUT_SHIFT_SCORE.percentile : 'no data';
+              const fieldINP =
+                  fieldMetrics?.INTERACTION_TO_NEXT_PAINT?.percentile ?? 'no data';
 
                 // Construct fieldResult object
                 const fieldResObj = {
@@ -126,6 +131,7 @@ const getSpeedData = async (testNum = 1) => {
                   fid: fieldFID,
                   lcp: fieldLCP,
                   cls: fieldCLS / 100,
+                  inp: fieldINP,
                   date: moment().format('YYYY-MM-DD'),
                 };
                 // Push object to fieldOrigin array
